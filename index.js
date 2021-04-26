@@ -1,19 +1,5 @@
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send(
-    "<code>Hello, this project is using <a href='https://pinglik.eu' target='_blank'>Pinglik</a>!</code>"
-  );
-});
-
-app.listen(port, () => {
-  console.log(`📡 Pinglik webserver has started!`);
-});
-
 const Discord = require('discord.js');
-const { prefix } = require('./config.json');
+const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 const { join } = require('path')
 const { readdirSync } = require('fs');
@@ -90,4 +76,4 @@ client.on('message', message => {
   }
 
 });
-client.login(process.env.TOKEN);
+client.login(`${token}`);
